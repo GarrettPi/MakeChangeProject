@@ -83,7 +83,7 @@ public class MakeChange {
 				keepGoing = false;
 				break;
 			default:
-				System.out.println("Invalid selection.  Enter any key to try again");
+				System.out.println("Invalid selection.  Please try again");
 				System.out.println();
 //				scanner.nextLine();
 			}
