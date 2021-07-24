@@ -78,6 +78,9 @@ public class MakeChange {
 			case "NO":
 			case "n":
 			case "N":
+			case "nope":
+			case "NOPE":
+			case "Nope":
 				System.out.println("\nThank you for using this service.  Have a good day!");
 				mistyped = false;
 				keepGoing = false;
