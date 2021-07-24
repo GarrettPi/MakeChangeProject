@@ -105,6 +105,7 @@ public class MakeChange {
 			billsText = billsChange(fullDollars);
 			change -= fullDollars;
 		}
+		if(change > 0)
 		coinsText = coinsChange(change);
 		// prints the completed change strings
 		printChange(billsText, coinsText, originalChange);
