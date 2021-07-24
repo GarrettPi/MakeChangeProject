@@ -12,8 +12,8 @@ Upon running the program, the user will be guided through a few simple text prom
 
 This is the correct change to dispense for $4.51:
 
->Bills -> $1(*denomination*): 4(*number of indicated bill to dispense*)
->Coins -> Quarters:2 Pennies:1
+Bills -> $1(*denomination*): 4(*number of indicated bill to dispense*)  
+Coins -> Quarters:2 Pennies:1  
 
 
 MakeChange will then prompt the user to indicate whether or not they wish to proceed with an additional change calculation.  The user can choose to repeat the process to their heart's desire or they can opt out and the program will terminate.
