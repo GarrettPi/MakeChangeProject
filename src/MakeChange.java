@@ -176,7 +176,7 @@ public class MakeChange {
 			default:
 				System.out.println("Invalid selection.  Please try again");
 				System.out.println();
-//				scanner.nextLine();
+				// scanner.nextLine();
 			}
 		}
 		return keepGoing;
