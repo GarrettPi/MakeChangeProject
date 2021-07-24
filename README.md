@@ -13,6 +13,7 @@ Upon running the program, the user will be guided through a few simple text prom
 
 * Conditionals
 * Ternary Operators
+* Switch Statements
 * Loops
 * Method Calling with parameters and returned values
 * Typecasting
