@@ -130,13 +130,13 @@ public class MakeChange {
 		newChange = newChange % 1;
 
 		if (quarters > 0)
-			coinsText += ("Quarters:" + quarters + " ");
+			coinsText += ("Quarters: " + quarters + " ");
 		if (dimes > 0)
-			coinsText += ("Dimes:" + dimes + " ");
+			coinsText += ("Dimes: " + dimes + " ");
 		if (nickels > 0)
-			coinsText += ("Nickels:" + nickels + " ");
+			coinsText += ("Nickels: " + nickels + " ");
 		if (pennies > 0)
-			coinsText += ("Pennies:" + pennies + " ");
+			coinsText += ("Pennies: " + pennies + " ");
 
 		return coinsText;
 	}
