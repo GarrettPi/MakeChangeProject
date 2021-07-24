@@ -8,7 +8,7 @@ MakeChange is a fun little program with a simple goal: calculate change to dispe
 
 Upon running the program, the user will be guided through a few simple text prompts to enter the transaction amount and then the amount of money tendered.  MakeChange will make the appropriate calculations and display the correct change for the user to dispense back to the customer.
 
-**Example output (hints to assist with clarity are in parentheses):**
+**Example output** (*hints to assist with clarity are in parentheses*):
 
 This is the correct change to dispense for $4.51:
 
