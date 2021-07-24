@@ -6,7 +6,7 @@ MakeChange is a fun little program with a simple goal: calculate change to dispe
 
 ### How to Use
 
-Upon running the program, the user will be guided through a few simple text prompts to enter the transaction amount and then the amount of money tendered.  MakeChange will make the appropriate calculations and display the correct the change for the user to dispense back to the customer.  MakeChange will then prompt the user to indicate whether or not they wish to proceed with an additional change calculation.  The user can choose to repeat the process to their heart's desire or they can opt out and the program will terminate.
+Upon running the program, the user will be guided through a few simple text prompts to enter the transaction amount and then the amount of money tendered.  MakeChange will make the appropriate calculations and display the correct change for the user to dispense back to the customer.  MakeChange will then prompt the user to indicate whether or not they wish to proceed with an additional change calculation.  The user can choose to repeat the process to their heart's desire or they can opt out and the program will terminate.
 
 
 ### Technologies
@@ -21,4 +21,8 @@ Upon running the program, the user will be guided through a few simple text prom
 
 ### Lessons Learned
 
-Main takeaways from project work
+My main takeaway from this project is that I REALLY enjoy coding.  Trying to explain the project I was working on to my family was met with some poorly-feigned enthusiasm but I was riveted the whole time.  This type of language manipulation for problem solving really tickles my fancy.
+
+Apart from the sheer joy I got out of working on MakeChange, I'd say the next biggest takeaway would be that there are innumerable ways to solve every coding problem.  Even with something as simple as conditional statements, there are many choices of which to use and even more choices to make in regards to implementation.  
+
+Last big takeaway is that debugging is KEY.  When I couldn't figure out why a loop was repeating when it should have ended, I through in some descriptive sysout debug statements and I had the answer immediately.  
