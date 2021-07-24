@@ -22,6 +22,7 @@ public class MakeChange {
 			// Prompt for money tendered and initialize it into cashTendered
 			System.out.println("\nPlease enter the money tendered by the customer: ");
 			cashTendered = scanner.nextDouble();
+			scanner.nextLine();
 
 			// Resource Management FTW!
 			// scanner.close();
@@ -44,57 +45,12 @@ public class MakeChange {
 				System.out
 						.println("\nInsufficient money tendered. Please pay the remaining balance of $" + underPayment);
 			}
-			
-			scanner.nextLine();
-			
 			// calls keepGoing to determine whether or not to rerun program
 			keepGoing = keepGoing();
-
 		}
-
 	}
 
-	private static boolean keepGoing() {
-		boolean keepGoing = true;
-		boolean mistyped = true;
-		// waits for a distinct affirmative or negative to continue
-		while (mistyped) {
-			System.out.println("Would you like to process another transaction? (Y or N)");
-			String cont = scanner.nextLine();
-			switch (cont) {
-			case "Y":
-			case "y":
-			case "yes":
-			case "Yes":
-			case "YES":
-			case "yarp":
-			case "Yarp":
-			case "YARP":
-				mistyped = false;
-				keepGoing = true;
-				break;
-			case "no":
-			case "No":
-			case "NO":
-			case "n":
-			case "N":
-			case "nope":
-			case "NOPE":
-			case "Nope":
-				System.out.println("\nThank you for using this service.  Have a good day!");
-				mistyped = false;
-				keepGoing = false;
-				break;
-			default:
-				System.out.println("Invalid selection.  Please try again");
-				System.out.println();
-//				scanner.nextLine();
-			}
-		}
-		return keepGoing;
-	}
-
-	// Determines if there is bill change as well as coinage and calls the
+// Determines if there is bill change as well as coinage and calls the
 	// appropriate methods. Once returned from change methods, calls printing method
 	private static void calculateChange(double change) {
 		double originalChange = change;
@@ -108,43 +64,16 @@ public class MakeChange {
 			billsText = billsChange(fullDollars);
 			change -= fullDollars;
 		}
-		if(change > 0)
-		coinsText = coinsChange(change);
+		// prevents coin change output if change is in whole dollars only
+		if (change > 0)
+			coinsText = coinsChange(change);
 		// prints the completed change strings
 		printChange(billsText, coinsText, originalChange);
 		return;
 
 	}
 
-	// does coin change math and builds string
-	private static String coinsChange(double change) {
-		String coinsText = "Coins -> ";
-		int newChange = (int) (Math.round(change * 100));
-//		System.out.println(newChange+" "+change);
-		int quarters, dimes, nickels, pennies;
-
-		quarters = (newChange / 25);
-		newChange = newChange % 25;
-		dimes = (newChange / 10);
-		newChange = newChange % 10;
-		nickels = (newChange / 5);
-		newChange = newChange % 5;
-		pennies = (newChange / 1);
-		newChange = newChange % 1;
-
-		if (quarters > 0)
-			coinsText += ("Quarters: " + quarters + " ");
-		if (dimes > 0)
-			coinsText += ("Dimes: " + dimes + " ");
-		if (nickels > 0)
-			coinsText += ("Nickels: " + nickels + " ");
-		if (pennies > 0)
-			coinsText += ("Pennies: " + pennies + " ");
-
-		return coinsText;
-	}
-
-	// does bill change math and builds string
+// does bill change math and builds string
 	private static String billsChange(int change) {
 		String billsText = "Bills -> ";
 		int twenties, tens, fives, ones;
@@ -170,7 +99,37 @@ public class MakeChange {
 		return billsText;
 	}
 
-	// prints the string(S)
+	// does coin change math and builds string
+	private static String coinsChange(double change) {
+		String coinsText = "Coins -> ";
+		int newChange = (int) (Math.round(change * 100));
+		// System.out.println(newChange);
+		// System.out.println(newChange+" "+change);
+		int quarters, dimes, nickels, pennies;
+
+		quarters = (newChange / 25);
+		newChange = newChange % 25;
+		dimes = (newChange / 10);
+		newChange = newChange % 10;
+		nickels = (newChange / 5);
+		newChange = newChange % 5;
+		pennies = (newChange / 1);
+		newChange = newChange % 1;
+
+		if (quarters > 0)
+			coinsText += ("Quarters: " + quarters + " ");
+		if (dimes > 0)
+			coinsText += ("Dimes: " + dimes + " ");
+		if (nickels > 0)
+			coinsText += ("Nickels: " + nickels + " ");
+		if (pennies > 0)
+			coinsText += ("Pennies: " + pennies + " ");
+
+		return coinsText;
+	}
+
+	// prints the Strings displaying the correct change amount and appropriate
+	// denominations
 	private static void printChange(String billsText, String coinsText, double originalChange) {
 		System.out.printf("\n\nThis is the correct change to dispense for $%.2f:\n\n", originalChange);
 		System.out.println(billsText);
@@ -178,5 +137,48 @@ public class MakeChange {
 		System.out.println();
 		System.out.println();
 		return;
+	}
+
+	// Will prompt user if they wish to continue using the program or would like to
+	// exit, accounting for mistyped entries
+	private static boolean keepGoing() {
+		boolean keepGoing = true;
+		boolean mistyped = true;
+		// waits for a distinct affirmative or negative to continue
+		while (mistyped) {
+			System.out.println("Would you like to process another transaction? (Y or N)");
+			String cont = scanner.nextLine();
+			switch (cont) {
+			case "Y":
+			case "y":
+			case "yes":
+			case "Yes":
+			case "YES":
+				// cause why not? I'm writing it so I can have a bit of fun
+			case "yarp":
+			case "Yarp":
+			case "YARP":
+				mistyped = false;
+				keepGoing = true;
+				break;
+			case "no":
+			case "No":
+			case "NO":
+			case "n":
+			case "N":
+			case "nope":
+			case "NOPE":
+			case "Nope":
+				System.out.println("\nThank you for using this service.  Have a good day!");
+				mistyped = false;
+				keepGoing = false;
+				break;
+			default:
+				System.out.println("Invalid selection.  Please try again");
+				System.out.println();
+//				scanner.nextLine();
+			}
+		}
+		return keepGoing;
 	}
 }
