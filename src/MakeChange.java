@@ -67,6 +67,9 @@ public class MakeChange {
 			case "yes":
 			case "Yes":
 			case "YES":
+			case "yarp":
+			case "Yarp":
+			case "YARP":
 				mistyped = false;
 				keepGoing = true;
 				break;
