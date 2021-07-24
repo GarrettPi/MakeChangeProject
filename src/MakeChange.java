@@ -75,7 +75,7 @@ public class MakeChange {
 			case "NO":
 			case "n":
 			case "N":
-				System.out.println("Thank you for using this service.  Have a good day!");
+				System.out.println("\nThank you for using this service.  Have a good day!");
 				mistyped = false;
 				keepGoing = false;
 				break;
@@ -111,7 +111,7 @@ public class MakeChange {
 
 	// does coin change math and builds string
 	private static String coinsChange(double change) {
-		String coinsText = "";
+		String coinsText = "Coins -> ";
 		int newChange = (int) (Math.round(change * 100));
 //		System.out.println(newChange+" "+change);
 		int quarters, dimes, nickels, pennies;
@@ -139,7 +139,7 @@ public class MakeChange {
 
 	// does bill change math and builds string
 	private static String billsChange(int change) {
-		String billsText = "";
+		String billsText = "Bills -> ";
 		int twenties, tens, fives, ones;
 
 		twenties = (change / 20);
@@ -152,13 +152,13 @@ public class MakeChange {
 		change %= 1;
 
 		if (twenties > 0)
-			billsText += ("Twenties: " + twenties + " ");
+			billsText += ("$20: " + twenties + " ");
 		if (tens > 0)
-			billsText += ("Tens: " + tens + " ");
+			billsText += ("$10: " + tens + " ");
 		if (fives > 0)
-			billsText += ("Fives: " + fives + " ");
+			billsText += ("$5: " + fives + " ");
 		if (ones > 0)
-			billsText += ("Ones: " + ones + " ");
+			billsText += ("$1: " + ones + " ");
 
 		return billsText;
 	}
