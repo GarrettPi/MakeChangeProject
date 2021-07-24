@@ -1,10 +1,10 @@
 # Make Change
 
-## Overview
+### Overview
 
 MakeChange is a fun little program with a simple goal: calculate change to dispense in a transaction and then list the largest possible denominations to make correct change.  I've integrated loops into the code to allow the user to make the correct change as many times as they'd like.
 
-## How to Use
+### How to Use
 
 Upon running the program, the user will be guided through a few simple text prompts to enter the transaction amount and then the amount of money tendered.  MakeChange will make the appropriate calculations and display the correct change for the user to dispense back to the customer.
 
@@ -12,14 +12,14 @@ Upon running the program, the user will be guided through a few simple text prom
 
 This is the correct change to dispense for $4.51:
 
-Bills -> $1(*denomination*): 4(*number of indicated bill to dispense*)
-Coins -> Quarters:2 Pennies:1
+>Bills -> $1(*denomination*): 4(*number of indicated bill to dispense*)
+>Coins -> Quarters:2 Pennies:1
 
 
 MakeChange will then prompt the user to indicate whether or not they wish to proceed with an additional change calculation.  The user can choose to repeat the process to their heart's desire or they can opt out and the program will terminate.
 
 
-## Technologies
+### Technologies
 
 * Conditionals
 * Ternary Operators
@@ -29,7 +29,7 @@ MakeChange will then prompt the user to indicate whether or not they wish to pro
 * Typecasting
 * Modulus Operations
 
-## Lessons Learned
+### Lessons Learned
 
 My main takeaway from this project is that I REALLY enjoy coding.  My trying to explain the project I was working on to my family was met with some poorly-feigned enthusiasm but I was riveted the whole time.  This type of language manipulation for problem solving really tickles my fancy.
 
