@@ -156,13 +156,13 @@ public class MakeChange {
 		change %= 1;
 
 		if (twenties > 0)
-			billsText += ("$20: " + twenties + " ");
+			billsText += ("Twenties: " + twenties + " ");
 		if (tens > 0)
-			billsText += ("$10: " + tens + " ");
+			billsText += ("Tens: " + tens + " ");
 		if (fives > 0)
-			billsText += ("$5: " + fives + " ");
+			billsText += ("Fives: " + fives + " ");
 		if (ones > 0)
-			billsText += ("$1: " + ones + " ");
+			billsText += ("Ones: " + ones + " ");
 
 		return billsText;
 	}
