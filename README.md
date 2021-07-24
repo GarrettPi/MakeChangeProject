@@ -31,8 +31,10 @@ MakeChange will then prompt the user to indicate whether or not they wish to pro
 
 ### Lessons Learned
 
-My main takeaway from this project is that I REALLY enjoy coding.  My trying to explain the project I was working on to my family was met with some poorly-feigned enthusiasm but I was riveted the whole time.  This type of language manipulation for problem solving really tickles my fancy.
+My main takeaway from this project is that I REALLY enjoy coding.  My trying to explain the project to my family was met with some poorly-feigned enthusiasm but I was enjoying myself the whole time.  This type of language manipulation for problem solving really tickles my fancy.
 
 Apart from the sheer joy I got out of working on MakeChange, I'd say the next biggest takeaway would be that there are innumerable ways to solve every coding problem.  Even with something as simple as conditional statements, there are many choices of which to use and even more choices to make in regards to implementation.  
+
+Another takeaway is that Java has some inbuilt imprecision that could potentially cause issues if you're unaware of them while writing code.  That being said, they can also be used to get specific results.  For instance, in my code, I casted a double (the amount of change to be tendered in dollars and cents) into an integer.  This loss in precision after the decimal allowed me to easily separate out the whole number change from the change less than a dollar.
 
 Last big takeaway is that debugging is KEY.  When I couldn't figure out why a loop was repeating when it should have ended, I threw in some descriptive sysout debug statements and I had the answer immediately.  
