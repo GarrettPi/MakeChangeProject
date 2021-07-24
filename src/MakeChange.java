@@ -45,6 +45,9 @@ public class MakeChange {
 						.println("\nInsufficient money tendered. Please pay the remaining balance of $" + underPayment);
 			}
 			
+			scanner.nextLine();
+			
+			// calls keepGoing to determine whether or not to rerun program
 			keepGoing = keepGoing();
 
 		}
@@ -53,27 +56,34 @@ public class MakeChange {
 
 	private static boolean keepGoing() {
 		boolean keepGoing = true;
-		System.out.println("Would you like to process another transaction? (Y or N)");
-		scanner.nextLine();
-		String cont = scanner.nextLine();
-		
-		switch(cont) {
-		case "Y":
-		case "y":
-		case "yes":
-		case "Yes":
-		case "YES":
-			return true;
-		case "no":
-		case "No":
-		case "NO":
-		case "n":
-		case "N":
-			System.out.println("Thank you for using this service.  Have a good day!");
-			return false;
-		default:
-			System.out.println("Invalid selection.  Please try again");
-			keepGoing();
+		boolean mistyped = true;
+		// waits for a distinct affirmative or negative to continue
+		while (mistyped) {
+			System.out.println("Would you like to process another transaction? (Y or N)");
+			String cont = scanner.nextLine();
+			switch (cont) {
+			case "Y":
+			case "y":
+			case "yes":
+			case "Yes":
+			case "YES":
+				mistyped = false;
+				keepGoing = true;
+				break;
+			case "no":
+			case "No":
+			case "NO":
+			case "n":
+			case "N":
+				System.out.println("Thank you for using this service.  Have a good day!");
+				mistyped = false;
+				keepGoing = false;
+				break;
+			default:
+				System.out.println("Invalid selection.  Enter any key to try again");
+				System.out.println();
+//				scanner.nextLine();
+			}
 		}
 		return keepGoing;
 	}
@@ -155,7 +165,7 @@ public class MakeChange {
 
 	// prints the string(S)
 	private static void printChange(String billsText, String coinsText, double originalChange) {
-		System.out.printf("\n\nThis is the correct change to dispense for $%.2f:\n", originalChange);
+		System.out.printf("\n\nThis is the correct change to dispense for $%.2f:\n\n", originalChange);
 		System.out.println(billsText);
 		System.out.println(coinsText);
 		System.out.println();
