@@ -2,64 +2,100 @@ import java.util.Scanner;
 
 public class MakeChange {
 
+	// Create a scanner for input
 	static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		// Create a scanner for input
 
 		// Declare variables
 		double itemPrice, cashTendered;
 		String money;
+		boolean keepGoing = true;
 		// boolean enoughMoney;
 
-		// Prompt for cost of item and initialize it into itemPrice
-		System.out.println("Please enter the price of the item: ");
-		itemPrice = scanner.nextDouble();
+		while (keepGoing) {
 
-		// Prompt for money tendered and initialize it into cashTendered
-		System.out.println("\nPlease enter the money tendered by the customer: ");
-		cashTendered = scanner.nextDouble();
+			// Prompt for cost of item and initialize it into itemPrice
+			System.out.println("Please enter the price of the item: ");
+			itemPrice = scanner.nextDouble();
 
-		scanner.close();
+			// Prompt for money tendered and initialize it into cashTendered
+			System.out.println("\nPlease enter the money tendered by the customer: ");
+			cashTendered = scanner.nextDouble();
 
-		// Determine if enough money has been tendered and alert the user if not (could
-		// be done more simply but I wanted to practice w/ ternary operators and switch
-		// statements)
-		money = cashTendered >= itemPrice ? cashTendered == itemPrice ? "exact" : "over" : "under";
+			// Resource Management FTW!
+			// scanner.close();
 
-		switch (money) {
-		case "exact":
-			System.out.println("\nExact change was given.  No change is necessary");
-			break;
-		case "over":
-			calculateChange(cashTendered - itemPrice);
-			break;
-		case "under":
-			double underPayment = Math.round((itemPrice - cashTendered) * 100);
-			underPayment /= 100;
-			System.out.println("\nInsufficient money tendered. Please pay the remaining balance of $" + underPayment);
-			// break;
+			// Determine if enough money has been tendered and alert the user if not (could
+			// be done more simply but I wanted to practice w/ ternary operators and switch
+			// statements)
+			money = cashTendered >= itemPrice ? cashTendered == itemPrice ? "exact" : "over" : "under";
+
+			switch (money) {
+			case "exact":
+				System.out.println("\nExact change was given.  No change is necessary");
+				break;
+			case "over":
+				calculateChange(cashTendered - itemPrice);
+				break;
+			case "under":
+				double underPayment = Math.round((itemPrice - cashTendered) * 100);
+				underPayment /= 100;
+				System.out
+						.println("\nInsufficient money tendered. Please pay the remaining balance of $" + underPayment);
+			}
+			
+			keepGoing = keepGoing();
+
 		}
 
 	}
 
-	// Determines if there is bills change as well as coinage. Once returned from
-	// change methods, calls printing method
-	public static void calculateChange(double change) {
+	private static boolean keepGoing() {
+		boolean keepGoing = true;
+		System.out.println("Would you like to process another transaction? (Y or N)");
+		scanner.nextLine();
+		String cont = scanner.nextLine();
+		
+		switch(cont) {
+		case "Y":
+		case "y":
+		case "yes":
+		case "Yes":
+		case "YES":
+			return true;
+		case "no":
+		case "No":
+		case "NO":
+		case "n":
+		case "N":
+			System.out.println("Thank you for using this service.  Have a good day!");
+			return false;
+		default:
+			System.out.println("Invalid selection.  Please try again");
+			keepGoing();
+		}
+		return keepGoing;
+	}
+
+	// Determines if there is bill change as well as coinage and calls the
+	// appropriate methods. Once returned from change methods, calls printing method
+	private static void calculateChange(double change) {
 		double originalChange = change;
 		String billsText = "";
 		String coinsText = "";
 		// pulls the whole dollar value from the change and passes it to billsChange.
 		// Then sends the remainder (coin change) to coinsChange
 		if (change >= 1.0) {
-			//casting change to an integer to separate out the whole number value
-			int fullDollars = (int)change;
+			// casting change to an integer to separate out the whole number value
+			int fullDollars = (int) change;
 			billsText = billsChange(fullDollars);
 			change -= fullDollars;
 		}
 		coinsText = coinsChange(change);
 		// prints the completed change strings
 		printChange(billsText, coinsText, originalChange);
+		return;
 
 	}
 
@@ -80,13 +116,13 @@ public class MakeChange {
 		newChange = newChange % 1;
 
 		if (quarters > 0)
-			coinsText += ("Quarters:" + quarters+" ");
+			coinsText += ("Quarters:" + quarters + " ");
 		if (dimes > 0)
-			coinsText += ("Dimes:" + dimes+" ");
+			coinsText += ("Dimes:" + dimes + " ");
 		if (nickels > 0)
-			coinsText += ("Nickels:" + nickels+" ");
+			coinsText += ("Nickels:" + nickels + " ");
 		if (pennies > 0)
-			coinsText += ("Pennies:" + pennies+" ");
+			coinsText += ("Pennies:" + pennies + " ");
 
 		return coinsText;
 	}
@@ -106,13 +142,13 @@ public class MakeChange {
 		change %= 1;
 
 		if (twenties > 0)
-			billsText += ("Twenties: " + twenties+" ");
+			billsText += ("Twenties: " + twenties + " ");
 		if (tens > 0)
-			billsText += ("Tens: " + tens+" ");
+			billsText += ("Tens: " + tens + " ");
 		if (fives > 0)
-			billsText += ("Fives: " + fives+" ");
+			billsText += ("Fives: " + fives + " ");
 		if (ones > 0)
-			billsText += ("Ones: " + ones+" ");
+			billsText += ("Ones: " + ones + " ");
 
 		return billsText;
 	}
@@ -122,5 +158,8 @@ public class MakeChange {
 		System.out.printf("\n\nThis is the correct change to dispense for $%.2f:\n", originalChange);
 		System.out.println(billsText);
 		System.out.println(coinsText);
+		System.out.println();
+		System.out.println();
+		return;
 	}
 }
