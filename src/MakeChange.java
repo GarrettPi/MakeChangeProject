@@ -15,6 +15,7 @@ public class MakeChange {
 		while (keepGoing) {
 
 			// Prompt for cost of item and initialize it into itemPrice
+			System.out.println("Welcome to the Changenator 5000™\n");
 			System.out.println("Please enter the price of the item: ");
 			itemPrice = scanner.nextDouble();
 
