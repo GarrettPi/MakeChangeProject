@@ -108,13 +108,13 @@ public class MakeChange {
 		int quarters, dimes, nickels, pennies;
 
 		quarters = (newChange / 25);
-		newChange = newChange % 25;
+		newChange %= 25;
 		dimes = (newChange / 10);
-		newChange = newChange % 10;
+		newChange %= 10;
 		nickels = (newChange / 5);
-		newChange = newChange % 5;
+		newChange %= 5;
 		pennies = (newChange / 1);
-		newChange = newChange % 1;
+		newChange %= 1;
 
 		if (quarters > 0)
 			coinsText += ("Quarters: " + quarters + " ");
