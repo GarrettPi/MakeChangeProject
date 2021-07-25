@@ -7,11 +7,10 @@ public class MakeChange {
 
 	public static void main(String[] args) {
 
-		// Declare variables
+		// Declare variables for money amounts in and out and set up loop condition
 		double itemPrice, cashTendered;
 		String money;
 		boolean keepGoing = true;
-		// boolean enoughMoney;
 
 		while (keepGoing) {
 
@@ -23,9 +22,6 @@ public class MakeChange {
 			System.out.println("\nPlease enter the money tendered by the customer: ");
 			cashTendered = scanner.nextDouble();
 			scanner.nextLine();
-
-			// Resource Management FTW!
-			// scanner.close();
 
 			// Determine if enough money has been tendered and alert the user if not (could
 			// be done more simply but I wanted to practice w/ ternary operators and switch
